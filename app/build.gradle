@@ -1,0 +1,64 @@
+apply from: "${rootDir}/build-configuration/dependencies.gradle"
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'de.mannodermaus.android-junit5'
+
+android {
+    compileSdkVersion compileSdkVersionValue
+    defaultConfig {
+        applicationId applicationIdValue
+        minSdkVersion minSdkVersionValue
+        targetSdkVersion targetSdkVersionValue
+        versionCode versionCodeValue
+        versionName versionNameValue
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //AndroidX Core
+    implementation androidXCoreLib
+
+    //Android
+    implementation androidSupportLib
+    implementation androidMaterialDesignLib
+    implementation constraintsLayoutLib
+
+    //Coroutines kotlin
+    implementation coroutinesCoreLib
+    implementation coroutinesAndroidLib
+
+    //Dagger 2
+    implementation daggerLib
+    kapt daggerCompiler
+
+    //Glide
+    implementation glideLib
+    annotationProcessor glideCompiler
+
+    //Gson
+    implementation gsonLib
+
+    //Testing
+    testImplementation mockitoLib
+    testImplementation jUnitLib
+    androidTestImplementation testRunnerLib
+    testImplementation jUnitLib5ApiLib
+    testRuntimeOnly jUnitLib5EngineLib
+    testImplementation jUnitLib5ParamsLib
+
+    //Projects
+    api project(':api')
+}

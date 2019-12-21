@@ -1,0 +1,43 @@
+apply from: "${rootDir}/build-configuration/dependencies.gradle"
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion compileSdkVersionValue
+    defaultConfig {
+        minSdkVersion minSdkVersionValue
+        targetSdkVersion targetSdkVersionValue
+        versionCode versionCodeValue
+        versionName versionNameValue
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //Retrofit
+    implementation retrofitLib
+    implementation retrofitGSONLib
+
+    //Android support
+    implementation androidSupportLib
+
+    //Testing
+    testImplementation jUnitLib
+    androidTestImplementation testRunnerLib
+    androidTestImplementation espressoLib
+    testImplementation mockitoLib
+}
