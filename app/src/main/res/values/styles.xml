@@ -6,6 +6,36 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="toolbarTitle" parent="@android:style/TextAppearance.Small">
+        <item name="android:textSize">@dimen/h6</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:padding">@dimen/dim8_size</item>
+    </style>
+
+    <style name="bodyText" parent="@android:style/TextAppearance.Small">
+        <item name="android:textSize">@dimen/body_text</item>
+        <item name="android:textColor">@color/grayColor</item>
+        <item name="android:layout_marginStart">@dimen/dim8_size</item>
+        <item name="android:layout_marginEnd">@dimen/dim8_size</item>
+        <item name="android:layout_marginBottom">@dimen/dim8_size</item>
+    </style>
+
+    <style name="errorText" parent="@android:style/TextAppearance.Small">
+        <item name="android:textSize">@dimen/h5</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="errorSubtitleText" parent="@android:style/TextAppearance.Small">
+        <item name="android:textSize">@dimen/h6</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:gravity">center</item>
     </style>
 
 </resources>
