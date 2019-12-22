@@ -12,6 +12,6 @@ var backgroundContext = Dispatchers.IO + UncaughtCoRoutineExceptionHandler()
 class UncaughtCoRoutineExceptionHandler :
     CoroutineExceptionHandler, AbstractCoroutineContextElement(CoroutineExceptionHandler.Key) {
     override fun handleException(context: CoroutineContext, exception: Throwable) {
-        Log.e("Coroutines Error", exception.localizedMessage)
+        Log.e("Coroutines Error", exception.localizedMessage!!)
     }
 }
