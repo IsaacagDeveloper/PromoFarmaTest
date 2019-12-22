@@ -17,7 +17,7 @@ class ShowsListClientImpl(
             val apiResponse = endpoint.execute()
             if (apiResponse.isSuccessful) {
                 apiResponse.body()?.apply {
-                    showsListApiResponseModel = this
+                    showsListApiResponseModel.dataList = this
                     showsListApiResponseModel.responseState = ResponseState.SUCCESS
                 }
             }

@@ -4,6 +4,6 @@ import com.isaacdeveloper.api.model.ResponseState
 import com.isaacdeveloper.api.model.response.commonShowsModels.Data
 
 class ShowsListApiResponseModel(
-    val data: Data?,
+    var dataList: List<Data>?,
     var responseState: ResponseState
 )

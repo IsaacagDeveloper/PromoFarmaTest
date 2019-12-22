@@ -17,7 +17,7 @@ data class Data (
     @SerializedName("rating") val rating : Rating,
     @SerializedName("weight") val weight : Int,
     @SerializedName("network") val network : Network,
-    @SerializedName("webChannel") val webChannel : String,
+    @SerializedName("webChannel") val webChannel : WebChannel,
     @SerializedName("externals") val externals : Externals,
     @SerializedName("image") val image : Image,
     @SerializedName("summary") val summary : String,
