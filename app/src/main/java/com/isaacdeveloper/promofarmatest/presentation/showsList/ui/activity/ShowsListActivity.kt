@@ -27,11 +27,11 @@ class ShowsListActivity : AppCompatActivity() {
     }
 
     fun showLoading() {
-        rlLoadingProductList.visibility = View.VISIBLE
+        rlLoadingShowList.visibility = View.VISIBLE
     }
 
     fun hideLoading() {
-        rlLoadingProductList.visibility = View.GONE
+        rlLoadingShowList.visibility = View.GONE
     }
 
     fun showErrorOrEmptyData() {
