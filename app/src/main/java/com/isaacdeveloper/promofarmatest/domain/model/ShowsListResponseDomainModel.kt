@@ -4,5 +4,6 @@ import com.isaacdeveloper.promofarmatest.domain.DomainState
 
 data class ShowsListResponseDomainModel(
     var showList : MutableList<ShowsListDomainModel>,
-    var state : DomainState
+    var state : DomainState,
+    var page : String
 )

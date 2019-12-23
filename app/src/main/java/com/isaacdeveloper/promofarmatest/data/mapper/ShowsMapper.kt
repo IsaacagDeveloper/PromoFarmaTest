@@ -11,7 +11,8 @@ import com.isaacdeveloper.promofarmatest.kernel.constants.EMPTY_TEXT
 
 fun showListToDomain(showsListResponseApiModel: ShowsListApiResponseModel): ShowsListResponseDomainModel {
     val state = stateToDomain(showsListResponseApiModel.responseState)
-    val showsList = ShowsListResponseDomainModel(mutableListOf(), state)
+    val page = showsListResponseApiModel.page
+    val showsList = ShowsListResponseDomainModel(mutableListOf(), state, page)
     showsListResponseApiModel.dataList?.apply {
         for(show in this) {
             showsList.showList.add(

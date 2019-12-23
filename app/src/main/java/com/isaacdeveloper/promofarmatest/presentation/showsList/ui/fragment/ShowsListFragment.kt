@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.isaacdeveloper.promofarmatest.R
 import com.isaacdeveloper.promofarmatest.di.ShowsListModule
@@ -20,6 +21,7 @@ import com.isaacdeveloper.promofarmatest.presentation.showsList.ui.activity.Show
 import com.isaacdeveloper.promofarmatest.presentation.showsList.ui.adapter.ShowsListAdapter
 import kotlinx.android.synthetic.main.fragment_shows_list.*
 import javax.inject.Inject
+
 
 class ShowsListFragment : BaseFragment(), OnShowsClick, ShowsListView {
 
@@ -58,6 +60,21 @@ class ShowsListFragment : BaseFragment(), OnShowsClick, ShowsListView {
         val mLayoutManager = StaggeredGridLayoutManager(NUM_COLUMNS, LinearLayoutManager.VERTICAL)
         rvShowsList.layoutManager = mLayoutManager
         rvShowsList.adapter = mAdapter
+        rvShowsList.addOnScrollListener(object: RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                val visibleItemCount = mLayoutManager.childCount
+                val totalItemCount = mLayoutManager.itemCount
+                var firstVisibleItems: IntArray? = null
+                firstVisibleItems = mLayoutManager.findFirstVisibleItemPositions(firstVisibleItems)
+                var pastVisiblesItems = 0
+                if (firstVisibleItems != null && firstVisibleItems.isNotEmpty()) {
+                    pastVisiblesItems = firstVisibleItems[0]
+                }
+                if (visibleItemCount + pastVisiblesItems >= totalItemCount) {
+                    presenter.onScrollEnd()
+                }
+            }
+        })
     }
 
     override fun onShowsClick(show: ShowsListDomainModel) {
@@ -89,6 +106,11 @@ class ShowsListFragment : BaseFragment(), OnShowsClick, ShowsListView {
 
     override fun loadData(showListSend: MutableList<ShowsListDomainModel>) {
         mAdapter.addAll(showListSend)
+        mAdapter.notifyDataSetChanged()
+    }
+
+    override fun addData(newShowsSend: MutableList<ShowsListDomainModel>) {
+        mAdapter.addAll(newShowsSend)
         mAdapter.notifyDataSetChanged()
     }
 
