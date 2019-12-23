@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.item_show.view.*
 
 class ShowsListAdapter(val context: Context,
                        var showsList: MutableList<ShowsListDomainModel>,
-                       val onClickListItem: (String) -> Unit) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+                       val onClickListItem: (ShowsListDomainModel) -> Unit) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 
     inner class ShowViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -22,7 +22,7 @@ class ShowsListAdapter(val context: Context,
         fun onbind(item : ShowsListDomainModel){
             imgShow.loadImageFromURL(context, item.url)
             txtShow.text = item.name
-            itemView.setOnClickListener { onClickListItem(item.id) }
+            itemView.setOnClickListener { onClickListItem(item) }
         }
     }
 

@@ -1,5 +1,6 @@
 package com.isaacdeveloper.promofarmatest.presentation.showsList.ui.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import com.isaacdeveloper.promofarmatest.di.ShowsListModule
 import com.isaacdeveloper.promofarmatest.domain.model.ShowsListDomainModel
 import com.isaacdeveloper.promofarmatest.kernel.constants.NUM_COLUMNS
 import com.isaacdeveloper.promofarmatest.kernel.ui.BaseFragment
+import com.isaacdeveloper.promofarmatest.presentation.showDetail.ui.activity.ShowDetailActivity
 import com.isaacdeveloper.promofarmatest.presentation.showsList.presenter.ShowsListPresenter
 import com.isaacdeveloper.promofarmatest.presentation.showsList.ui.OnShowsClick
 import com.isaacdeveloper.promofarmatest.presentation.showsList.ui.ShowsListView
@@ -58,8 +60,8 @@ class ShowsListFragment : BaseFragment(), OnShowsClick, ShowsListView {
         rvShowsList.adapter = mAdapter
     }
 
-    override fun onShowsClick(id: String) {
-        presenter.showClicked(id)
+    override fun onShowsClick(show: ShowsListDomainModel) {
+        presenter.showClicked(show.id, show.name)
     }
 
     override fun showLoading() {
@@ -78,8 +80,11 @@ class ShowsListFragment : BaseFragment(), OnShowsClick, ShowsListView {
         }
     }
 
-    override fun openDetailView(showId: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun openDetailView(showId: String, title: String) {
+        val intent = Intent(context, ShowDetailActivity::class.java)
+        intent.putExtra(ShowDetailActivity.SHOW_ID_SEND, showId)
+        intent.putExtra(ShowDetailActivity.SHOW_TITLE_SEND, title)
+        activity!!.startActivity(intent)
     }
 
     override fun loadData(showListSend: MutableList<ShowsListDomainModel>) {

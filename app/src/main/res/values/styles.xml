@@ -35,7 +35,7 @@
         <item name="android:gravity">center</item>
     </style>
 
-    <style name="nameShowTest" parent="@android:style/TextAppearance.Small">
+    <style name="nameShowText" parent="@android:style/TextAppearance.Small">
         <item name="android:textSize">@dimen/h6</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@android:color/black</item>
@@ -44,5 +44,13 @@
         <item name="android:paddingStart">@dimen/dim8_size</item>
         <item name="android:paddingBottom">@dimen/dim8_size</item>
         <item name="android:paddingEnd">@dimen/dim8_size</item>
+    </style>
+
+    <style name="ratingStyle" parent="@android:style/TextAppearance.Small">
+        <item name="android:drawableLeft">@drawable/ic_star_rating</item>
+        <item name="android:drawablePadding">@dimen/dim2_size</item>
+        <item name="android:textColor">@color/ratingColor</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_marginEnd">@dimen/dim8_size</item>
     </style>
 </resources>

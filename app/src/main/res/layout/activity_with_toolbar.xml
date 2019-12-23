@@ -27,14 +27,14 @@
     </androidx.appcompat.widget.Toolbar>
 
     <RelativeLayout
-        android:id="@+id/rlLoadingProductList"
+        android:id="@+id/rlLoadingShowList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"
         android:background="@color/colorPrimaryBackground">
 
         <ProgressBar
-            android:id="@+id/progressBarProductList"
+            android:id="@+id/progressBarShowsList"
             android:layout_width="@dimen/dim60_size"
             android:layout_height="@dimen/dim60_size"
             android:layout_centerInParent="true"/>

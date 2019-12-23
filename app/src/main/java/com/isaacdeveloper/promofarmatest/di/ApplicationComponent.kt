@@ -9,4 +9,5 @@ import javax.inject.Singleton
 interface ApplicationComponent {
     fun inject(app: PromoFarmaApp)
     fun showsListComponent(showsListModule: ShowsListModule) : ShowsListComponent
+    fun showDetailComponent(showDetailModule: ShowDetailModule): ShowDetailComponent
 }
