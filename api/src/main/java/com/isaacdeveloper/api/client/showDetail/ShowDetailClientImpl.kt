@@ -16,7 +16,7 @@ class ShowDetailClientImpl(
             val apiResponse = endpoint.execute()
             if (apiResponse.isSuccessful) {
                 apiResponse.body()?.apply {
-                    showDetailApiResponseModel = this
+                    showDetailApiResponseModel.data = this
                     showDetailApiResponseModel.responseState = ResponseState.SUCCESS
                 }
             }
