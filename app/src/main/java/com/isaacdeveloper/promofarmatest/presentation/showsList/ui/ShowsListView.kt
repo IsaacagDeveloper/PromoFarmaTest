@@ -5,7 +5,7 @@ import com.isaacdeveloper.promofarmatest.domain.model.ShowsListDomainModel
 interface ShowsListView {
     fun showLoading()
     fun hideLoading()
-    fun openDetailView(showId: String)
+    fun openDetailView(showId: String, title: String)
     fun loadData(showListSend: MutableList<ShowsListDomainModel>)
     fun errorOrEmptyData()
 }

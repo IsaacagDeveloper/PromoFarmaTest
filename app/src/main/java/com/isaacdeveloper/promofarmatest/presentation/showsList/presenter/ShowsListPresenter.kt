@@ -27,8 +27,8 @@ class ShowsListPresenter(val getShowsListUseCase: GetShowsListUseCase) : Corouti
         }
     }
 
-    fun showClicked(showId: String) {
-        view?.openDetailView(showId)
+    fun showClicked(showId: String, title: String) {
+        view?.openDetailView(showId, title)
     }
 
 }

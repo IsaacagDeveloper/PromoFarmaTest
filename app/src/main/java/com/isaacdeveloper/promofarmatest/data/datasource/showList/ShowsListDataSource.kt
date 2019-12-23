@@ -1,4 +1,4 @@
-package com.isaacdeveloper.promofarmatest.data.datasource
+package com.isaacdeveloper.promofarmatest.data.datasource.showList
 
 import com.isaacdeveloper.promofarmatest.domain.model.ShowsListResponseDomainModel
 

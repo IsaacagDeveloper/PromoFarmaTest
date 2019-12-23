@@ -11,13 +11,13 @@ import com.isaacdeveloper.promofarmatest.data.datasource.showList.ShowsListDataS
 import com.isaacdeveloper.promofarmatest.data.datasource.showList.ShowsListDataSourceImpl
 import com.isaacdeveloper.promofarmatest.data.repository.ShowsRepository
 import com.isaacdeveloper.promofarmatest.data.repository.ShowsRepositoryImpl
-import com.isaacdeveloper.promofarmatest.domain.usecase.GetShowsListUseCase
-import com.isaacdeveloper.promofarmatest.presentation.showsList.presenter.ShowsListPresenter
+import com.isaacdeveloper.promofarmatest.domain.usecase.GetShowDetailUseCase
+import com.isaacdeveloper.promofarmatest.presentation.showDetail.presenter.ShowDetailPresenter
 import dagger.Module
 import dagger.Provides
 
 @Module
-class ShowsListModule {
+class ShowDetailModule {
 
     @Provides
     fun provideShowDetailClient(retrofitService: RetrofitService) : ShowDetailClient =
@@ -41,11 +41,11 @@ class ShowsListModule {
         ShowsRepositoryImpl(showsListDataSource, showDetailDataSource)
 
     @Provides
-    fun provideGetShowsListUseCase(showsRepository: ShowsRepository) : GetShowsListUseCase =
-        GetShowsListUseCase(showsRepository)
+    fun provideGetShowDetailUseCase(showsRepository: ShowsRepository) : GetShowDetailUseCase =
+        GetShowDetailUseCase(showsRepository)
 
     @Provides
-    fun provideShowsListPresenter(getShowsListUseCase: GetShowsListUseCase) : ShowsListPresenter =
-        ShowsListPresenter(getShowsListUseCase)
+    fun provideShowsDetailPresenter(getShowDetailUseCase: GetShowDetailUseCase) : ShowDetailPresenter =
+        ShowDetailPresenter(getShowDetailUseCase)
 
 }

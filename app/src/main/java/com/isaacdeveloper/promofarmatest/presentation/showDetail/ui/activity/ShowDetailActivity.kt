@@ -1,6 +1,7 @@
 package com.isaacdeveloper.promofarmatest.presentation.showDetail.ui.activity
 
 import android.os.Bundle
+import android.view.View
 import androidx.core.content.ContextCompat
 import com.isaacdeveloper.promofarmatest.R
 import com.isaacdeveloper.promofarmatest.kernel.ui.BaseActivity
@@ -41,5 +42,13 @@ class ShowDetailActivity : BaseActivity() {
 
     fun setParallaxImage(url: String) {
         imgParallaxToolbar.loadImageFromURL(this, url)
+    }
+
+    fun showLoading() {
+        progressBarShowDetail.visibility = View.VISIBLE
+    }
+
+    fun hideLoading() {
+        progressBarShowDetail.visibility = View.GONE
     }
 }
