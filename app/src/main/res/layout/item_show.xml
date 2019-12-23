@@ -28,7 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/imgShow"
-                style="@style/nameShowTest" />
+                style="@style/nameShowText" />
 
         </RelativeLayout>
 
