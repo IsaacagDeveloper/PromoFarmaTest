@@ -14,5 +14,5 @@ interface BaseAppApiService {
     fun getShowsList(@Query("num_page") numPage: String): Call<List<Data>>
 
     @GET("/shows/{id}")
-    fun getShowDetail(@Path("id") showId: String): Call<ShowDetailApiResponseModel>
+    fun getShowDetail(@Path("id") showId: String): Call<Data>
 }
