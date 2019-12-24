@@ -14,4 +14,7 @@ class ShowsRepositoryImpl(val showsListDataSource: ShowsListDataSource,
 
     override fun getShowDetail(query: String): ShowDetailResponseDomainModel =
         showDetailDataSource.getShowDetail(query)
+
+    override fun getMoreItems(query: String): ShowsListResponseDomainModel =
+        showsListDataSource.getMoreItems(query)
 }

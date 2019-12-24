@@ -4,4 +4,5 @@ import com.isaacdeveloper.promofarmatest.domain.model.ShowsListResponseDomainMod
 
 interface ShowsListDataSource {
     fun getShowsList(query: String): ShowsListResponseDomainModel
+    fun getMoreItems(query: String): ShowsListResponseDomainModel
 }

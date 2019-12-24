@@ -7,5 +7,6 @@ interface ShowsListView {
     fun hideLoading()
     fun openDetailView(showId: String, title: String)
     fun loadData(showListSend: MutableList<ShowsListDomainModel>)
+    fun addData(newShowsSend: MutableList<ShowsListDomainModel>)
     fun errorOrEmptyData()
 }

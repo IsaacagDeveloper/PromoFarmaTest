@@ -11,6 +11,7 @@ import com.isaacdeveloper.promofarmatest.data.datasource.showList.ShowsListDataS
 import com.isaacdeveloper.promofarmatest.data.datasource.showList.ShowsListDataSourceImpl
 import com.isaacdeveloper.promofarmatest.data.repository.ShowsRepository
 import com.isaacdeveloper.promofarmatest.data.repository.ShowsRepositoryImpl
+import com.isaacdeveloper.promofarmatest.domain.usecase.GetMoreItemsUseCase
 import com.isaacdeveloper.promofarmatest.domain.usecase.GetShowsListUseCase
 import com.isaacdeveloper.promofarmatest.presentation.showsList.presenter.ShowsListPresenter
 import dagger.Module
@@ -45,7 +46,12 @@ class ShowsListModule {
         GetShowsListUseCase(showsRepository)
 
     @Provides
-    fun provideShowsListPresenter(getShowsListUseCase: GetShowsListUseCase) : ShowsListPresenter =
-        ShowsListPresenter(getShowsListUseCase)
+    fun provideGetMoreItemsUseCase(showsRepository: ShowsRepository) : GetMoreItemsUseCase =
+        GetMoreItemsUseCase(showsRepository)
+
+    @Provides
+    fun provideShowsListPresenter(getShowsListUseCase: GetShowsListUseCase,
+                                  getMoreItemsUseCase: GetMoreItemsUseCase) : ShowsListPresenter =
+        ShowsListPresenter(getShowsListUseCase, getMoreItemsUseCase)
 
 }

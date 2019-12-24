@@ -12,4 +12,9 @@ class ShowsListDataSourceImpl(val showsListClient: ShowsListClient) :
         val responseShowsClient = showsListClient.getShows(query)
         return showListToDomain(responseShowsClient)
     }
+
+    override fun getMoreItems(query: String): ShowsListResponseDomainModel {
+        val responseShowsClient = showsListClient.getShows(query)
+        return showListToDomain(responseShowsClient)
+    }
 }
