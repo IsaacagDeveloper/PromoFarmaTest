@@ -70,7 +70,8 @@ class ShowsListFragment : BaseFragment(), OnShowsClick, ShowsListView {
                 if (firstVisibleItems != null && firstVisibleItems.isNotEmpty()) {
                     pastVisiblesItems = firstVisibleItems[0]
                 }
-                if (visibleItemCount + pastVisiblesItems >= totalItemCount) {
+                if ((visibleItemCount + pastVisiblesItems >= totalItemCount) && !presenter.getIsLoading()) {
+                    presenter.setIsLoading(true)
                     presenter.onScrollEnd()
                 }
             }
@@ -111,7 +112,8 @@ class ShowsListFragment : BaseFragment(), OnShowsClick, ShowsListView {
 
     override fun addData(newShowsSend: MutableList<ShowsListDomainModel>) {
         mAdapter.addAll(newShowsSend)
-        mAdapter.notifyDataSetChanged()
+        mAdapter.notifyItemInserted(mAdapter.itemCount)
+        presenter.setIsLoading(false)
     }
 
     override fun errorOrEmptyData() {

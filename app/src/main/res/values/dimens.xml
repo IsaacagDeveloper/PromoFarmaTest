@@ -25,5 +25,5 @@
 
     //Specified dimens
     <dimen name="error_layout_waring_size">200dp</dimen>
-    <dimen name="collapse_toolbar_size">420dp</dimen>
+    <dimen name="collapse_toolbar_size">600dp</dimen>
 </resources>
