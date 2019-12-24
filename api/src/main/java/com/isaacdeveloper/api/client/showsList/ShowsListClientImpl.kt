@@ -11,7 +11,7 @@ class ShowsListClientImpl(
 ): ShowsListClient {
 
     override fun getShows(query: String): ShowsListApiResponseModel {
-        var showsListApiResponseModel = ShowsListApiResponseModel(null, ResponseState.ERROR)
+        var showsListApiResponseModel = ShowsListApiResponseModel(null, ResponseState.ERROR, query)
         try {
             val endpoint = retrofitService.service.getShowsList(query)
             val apiResponse = endpoint.execute()
