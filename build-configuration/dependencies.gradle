@@ -5,12 +5,12 @@ ext {
 
     //About the app
     applicationIdValue = "com.isaacdeveloper.promofarmatest"
-    versionCodeValue = 000001
-    versionNameValue = "0.0.1"
+    versionCodeValue = 100000
+    versionNameValue = "1.0.0"
 
     //About the android project
     compileSdkVersionValue = 29
-    minSdkVersionValue = 26
+    minSdkVersionValue = 23
     targetSdkVersionValue = 29
 
     //About the version of the dependencies we are going to use
