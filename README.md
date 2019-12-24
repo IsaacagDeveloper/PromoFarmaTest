@@ -54,6 +54,7 @@ It Contains the core for different classes types. For example base configuration
 ### Important used libraries
  - Dagger2: it's responsible to do dependency injection.
  - Coroutines: it's responsible to manage threads.
+ - Retrofit2: REST client.
  - Glide: allow to load an image asynchronously.
  - Gson: it's responsible to map json object to our models.
  - Mockito: allow create mock objects.
